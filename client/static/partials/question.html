@@ -1,0 +1,29 @@
+<nav ng-controller='usersController as UC'>
+	<div  class="nav-wrapper purple darken-4">
+		<a href="#/" class="brand-logo">MEAN Belt Exam Three</a>
+		<ul class="right">
+			<li><a href="#/dashboard">Home</a></li>				
+			<li><a href="" ng-click='UC.logout()'>Logout</a></li>			
+		</ul>
+	</div>
+</nav>
+<div class="container" ng-controller='questionsController as QC'>
+	<div class="row">
+		<p><a href="#/question/{{QC.q_id.id}}/new_answer">Answer this Question</a></p>
+		<h4>{{QC.question.question}}</h4>
+		<h5>{{QC.question.description}}</h5>
+		<div ng-repeat='answer in QC.question._answers | orderBy: "-likes"' class="col s8">
+			<div class="section"></div>
+			<div class="row blue lighten-4">
+				<div class="col s8">
+				<p class="blue-text">{{answer.user}}</p>
+				<p>{{answer.answer}}</p>
+				<p>{{answer.description}}</p>
+				</div>
+				<div class="col s4">
+				<p>{{answer.likes}} likes  <button class="btn waves-effect waves-light" ng-click='QC.like(answer._id)'>Like</button></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,32 @@
+<nav ng-controller='usersController as UC'>
+	<div  class="nav-wrapper purple darken-4">
+		<a href="#/" class="brand-logo">MEAN Belt Exam Three</a>
+		<ul class="right">
+			<li><a href="#/dashboard">Home</a></li>
+			<li><a href="" ng-click='UC.logout()'>Logout</a></li>			
+		</ul>
+	</div>
+</nav>
+<div class="container" ng-controller='newAnswersController as NAC'>
+<div class="row">
+		<p><a href="#/question/{{NAC.q_id.id}}">Go Back to Question</a></p>
+		<h4>{{NAC.question.question}}</h4>
+		<h5>{{NAC.question.description}}</h5>	
+		<form class="col s6" name="aForm">
+		<label>Your Answer</label>
+		<label ng-show="aForm.answer.$touched && aForm.answer.$error.required" class="red-text">The answer is required</label>
+		<label ng-show="aForm.answer.$touched && aForm.answer.$error.minlength" class="red-text">The answer requires at least 5 characters</label>		
+		<textarea ng-model='NAC.newAnswer.answer' required="" minlength="5" name="answer"></textarea>
+		<label>Supporing details for your answer (optional)</label>
+		<textarea ng-model='NAC.newAnswer.description' name="description"></textarea>
+		<div class="row">
+			<div class="col s6">
+				<a href="#/dashboard"><button class="btn waves-effect waves-light red right">Cancel</button></a>
+			</div>
+			<div class="col s6">
+				<button ng-show='aForm.answer.$valid' class="btn waves-effect waves-light purple lighten-1 right" ng-click="NAC.create()">Submit</button>
+			</div>
+		
+	</form>
+</div>
+</div>

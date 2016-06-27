@@ -1,0 +1,20 @@
+<nav>
+	<div  class="nav-wrapper purple darken-4">
+		<a href="#/" class="brand-logo">MEAN Belt Exam Three</a>
+		<ul class="right">
+
+		</ul>
+	</div>
+</nav>
+<div class="container">
+	<div class="section row" ng-controller='usersController as UC'>
+		<h4>Q &amp; A</h4>
+		<div class="section"></div>
+		<div class="col s6 section">
+		<form name="nameForm">
+			<input type="text" ng-model='UC.chkuser.name' name="name" placeholder="Enter your name" required="" />
+			<button ng-show="nameForm.name.$valid" class="btn waves-effect waves-light purple right" ng-click='UC.login()'>Login</button>
+		</form>
+		</div>
+	</div>
+</div>
